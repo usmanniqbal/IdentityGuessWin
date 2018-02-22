@@ -142,6 +142,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmIdentifyImage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Identify Image";
             this.Load += new System.EventHandler(this.frmIdentifyImage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();

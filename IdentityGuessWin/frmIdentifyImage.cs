@@ -12,8 +12,10 @@ namespace IdentityGuessWin
         const int moveInc = 30;
         const int winPoints = 20;
         const int lossPoints = -5;
+        const int totalRound = 10;
         Random random = new Random();
-        Dictionary<Image, string> imageList = new Dictionary<Image, string>();
+        Dictionary<Image, Label> imageList = new Dictionary<Image, Label>();
+        int currentRound;
 
         public frmIdentifyImage()
         {
@@ -23,21 +25,21 @@ namespace IdentityGuessWin
         private void frmIdentifyImage_Load(object sender, EventArgs e)
         {
             //load images into dictionary
-            this.imageList.Add(Properties.Resources.japanese1, "Japanese");
-            this.imageList.Add(Properties.Resources.japanese2, "Japanese");
-            this.imageList.Add(Properties.Resources.japanese3, "Japanese");
+            this.imageList.Add(Properties.Resources.japanese1, lblJapanese);
+            this.imageList.Add(Properties.Resources.japanese2, lblJapanese);
+            this.imageList.Add(Properties.Resources.japanese3, lblJapanese);
 
-            this.imageList.Add(Properties.Resources.korean1, "Korean");
-            this.imageList.Add(Properties.Resources.korean2, "Korean");
-            this.imageList.Add(Properties.Resources.korean3, "Korean");
+            this.imageList.Add(Properties.Resources.korean1, lblKorean);
+            this.imageList.Add(Properties.Resources.korean2, lblKorean);
+            this.imageList.Add(Properties.Resources.korean3, lblKorean);
 
-            this.imageList.Add(Properties.Resources.chinese1, "Chinese");
-            this.imageList.Add(Properties.Resources.chinese2, "Chinese");
-            this.imageList.Add(Properties.Resources.chinese3, "Chinese");
+            this.imageList.Add(Properties.Resources.chinese1, lblChinese);
+            this.imageList.Add(Properties.Resources.chinese2, lblChinese);
+            this.imageList.Add(Properties.Resources.chinese3, lblChinese);
 
-            this.imageList.Add(Properties.Resources.thai1, "Thai");
-            this.imageList.Add(Properties.Resources.thai2, "Thai");
-            this.imageList.Add(Properties.Resources.thai3, "Thai");
+            this.imageList.Add(Properties.Resources.thai1, lblThai);
+            this.imageList.Add(Properties.Resources.thai2, lblThai);
+            this.imageList.Add(Properties.Resources.thai3, lblThai);
 
             //Set timer interval in accordance to form height so that pic movement takes 3 seconds
             tim.Interval = Convert.ToInt32(Convert.ToDouble(timerTick) / (Convert.ToDouble(this.Height + (pic.Height * 2)) / Convert.ToDouble(moveInc)));
@@ -54,6 +56,25 @@ namespace IdentityGuessWin
                 pic.Left = (this.Width / 2) - (pic.Width / 2);
                 int randIndex = random.Next(0, this.imageList.Count);
                 pic.Image = this.imageList.ElementAt(randIndex).Key;
+
+                currentRound++;
+
+                if (currentRound > totalRound)
+                {
+                    currentRound = 0;
+                    tim.Enabled = false;
+
+                    if (MessageBox.Show(string.Format("Your total score: {0}. Play Again?", lblPoints.Text), "Game Over", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        lblPoints.Text = "0";
+                        tim.Enabled = true;
+                        pic.Image = null;
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                }
             }
         }
 
@@ -82,8 +103,9 @@ namespace IdentityGuessWin
             //Upon draging it will check if the answer is right or wrong.
 
             Control ctl = sender as Control;
+            Label rightLabel = this.imageList[pic.Image];
 
-            if (ctl.Text == this.imageList[pic.Image])
+            if (ctl == rightLabel)
             {
                 lblPoints.Text = (Convert.ToInt32(lblPoints.Text) + winPoints).ToString();
             }
