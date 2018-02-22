@@ -29,79 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnJapanese = new System.Windows.Forms.Button();
-            this.btnChinese = new System.Windows.Forms.Button();
-            this.btnKorean = new System.Windows.Forms.Button();
-            this.btnThai = new System.Windows.Forms.Button();
             this.tim = new System.Windows.Forms.Timer(this.components);
-            this.pic = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblPoints = new System.Windows.Forms.Label();
+            this.lblJapanese = new System.Windows.Forms.Label();
+            this.lblChinese = new System.Windows.Forms.Label();
+            this.lblKorean = new System.Windows.Forms.Label();
+            this.lblThai = new System.Windows.Forms.Label();
+            this.pic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnJapanese
-            // 
-            this.btnJapanese.Location = new System.Drawing.Point(-1, -1);
-            this.btnJapanese.Name = "btnJapanese";
-            this.btnJapanese.Size = new System.Drawing.Size(75, 63);
-            this.btnJapanese.TabIndex = 0;
-            this.btnJapanese.Text = "Japanese";
-            this.btnJapanese.UseVisualStyleBackColor = true;
-            this.btnJapanese.Click += new System.EventHandler(this.btn_Click);
-            // 
-            // btnChinese
-            // 
-            this.btnChinese.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChinese.Location = new System.Drawing.Point(513, -1);
-            this.btnChinese.Name = "btnChinese";
-            this.btnChinese.Size = new System.Drawing.Size(75, 63);
-            this.btnChinese.TabIndex = 1;
-            this.btnChinese.Text = "Chinese";
-            this.btnChinese.UseVisualStyleBackColor = true;
-            this.btnChinese.Click += new System.EventHandler(this.btn_Click);
-            // 
-            // btnKorean
-            // 
-            this.btnKorean.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnKorean.Location = new System.Drawing.Point(-1, 366);
-            this.btnKorean.Name = "btnKorean";
-            this.btnKorean.Size = new System.Drawing.Size(75, 63);
-            this.btnKorean.TabIndex = 2;
-            this.btnKorean.Text = "Korean";
-            this.btnKorean.UseVisualStyleBackColor = true;
-            this.btnKorean.Click += new System.EventHandler(this.btn_Click);
-            // 
-            // btnThai
-            // 
-            this.btnThai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThai.Location = new System.Drawing.Point(513, 366);
-            this.btnThai.Name = "btnThai";
-            this.btnThai.Size = new System.Drawing.Size(75, 63);
-            this.btnThai.TabIndex = 3;
-            this.btnThai.Text = "Thai";
-            this.btnThai.UseVisualStyleBackColor = true;
-            this.btnThai.Click += new System.EventHandler(this.btn_Click);
-            // 
             // tim
             // 
-            this.tim.Enabled = true;
             this.tim.Tick += new System.EventHandler(this.tim_Tick);
-            // 
-            // pic
-            // 
-            this.pic.Image = global::IdentityGuessWin.Properties.Resources.japanese1;
-            this.pic.Location = new System.Drawing.Point(223, -1);
-            this.pic.Name = "pic";
-            this.pic.Size = new System.Drawing.Size(141, 119);
-            this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic.TabIndex = 4;
-            this.pic.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 377);
+            this.label1.Location = new System.Drawing.Point(106, 377);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 5;
@@ -111,25 +57,89 @@
             // 
             this.lblPoints.AutoSize = true;
             this.lblPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPoints.Location = new System.Drawing.Point(80, 393);
+            this.lblPoints.Location = new System.Drawing.Point(106, 393);
             this.lblPoints.Name = "lblPoints";
             this.lblPoints.Size = new System.Drawing.Size(27, 29);
             this.lblPoints.TabIndex = 5;
             this.lblPoints.Text = "0";
             // 
+            // lblJapanese
+            // 
+            this.lblJapanese.AllowDrop = true;
+            this.lblJapanese.BackColor = System.Drawing.Color.CadetBlue;
+            this.lblJapanese.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJapanese.Location = new System.Drawing.Point(0, 0);
+            this.lblJapanese.Name = "lblJapanese";
+            this.lblJapanese.Size = new System.Drawing.Size(100, 81);
+            this.lblJapanese.TabIndex = 7;
+            this.lblJapanese.Text = "Japanese";
+            this.lblJapanese.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblJapanese.DragLeave += new System.EventHandler(this.lbl_DragLeave);
+            // 
+            // lblChinese
+            // 
+            this.lblChinese.AllowDrop = true;
+            this.lblChinese.BackColor = System.Drawing.Color.CadetBlue;
+            this.lblChinese.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChinese.Location = new System.Drawing.Point(488, 0);
+            this.lblChinese.Name = "lblChinese";
+            this.lblChinese.Size = new System.Drawing.Size(100, 81);
+            this.lblChinese.TabIndex = 8;
+            this.lblChinese.Text = "Chinese";
+            this.lblChinese.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblChinese.DragLeave += new System.EventHandler(this.lbl_DragLeave);
+            // 
+            // lblKorean
+            // 
+            this.lblKorean.AllowDrop = true;
+            this.lblKorean.BackColor = System.Drawing.Color.CadetBlue;
+            this.lblKorean.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKorean.Location = new System.Drawing.Point(0, 348);
+            this.lblKorean.Name = "lblKorean";
+            this.lblKorean.Size = new System.Drawing.Size(100, 81);
+            this.lblKorean.TabIndex = 8;
+            this.lblKorean.Text = "Korean";
+            this.lblKorean.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblKorean.DragLeave += new System.EventHandler(this.lbl_DragLeave);
+            // 
+            // lblThai
+            // 
+            this.lblThai.AllowDrop = true;
+            this.lblThai.BackColor = System.Drawing.Color.CadetBlue;
+            this.lblThai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThai.Location = new System.Drawing.Point(488, 348);
+            this.lblThai.Name = "lblThai";
+            this.lblThai.Size = new System.Drawing.Size(100, 81);
+            this.lblThai.TabIndex = 8;
+            this.lblThai.Text = "Thai";
+            this.lblThai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblThai.DragLeave += new System.EventHandler(this.lbl_DragLeave);
+            // 
+            // pic
+            // 
+            this.pic.Location = new System.Drawing.Point(223, -1);
+            this.pic.Name = "pic";
+            this.pic.Size = new System.Drawing.Size(104, 96);
+            this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic.TabIndex = 4;
+            this.pic.TabStop = false;
+            this.pic.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pic_MouseDown);
+            this.pic.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pic_MouseUp);
+            // 
             // frmIdentifyImage
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(587, 428);
+            this.Controls.Add(this.pic);
+            this.Controls.Add(this.lblKorean);
+            this.Controls.Add(this.lblThai);
+            this.Controls.Add(this.lblChinese);
+            this.Controls.Add(this.lblJapanese);
             this.Controls.Add(this.lblPoints);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pic);
-            this.Controls.Add(this.btnThai);
-            this.Controls.Add(this.btnKorean);
-            this.Controls.Add(this.btnChinese);
-            this.Controls.Add(this.btnJapanese);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmIdentifyImage";
             this.Text = "Identify Image";
@@ -141,15 +151,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnJapanese;
-        private System.Windows.Forms.Button btnChinese;
-        private System.Windows.Forms.Button btnKorean;
-        private System.Windows.Forms.Button btnThai;
-        private System.Windows.Forms.PictureBox pic;
-        private System.Windows.Forms.Timer tim;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPoints;
+        private System.Windows.Forms.Label lblJapanese;
+        private System.Windows.Forms.Label lblChinese;
+        private System.Windows.Forms.Label lblKorean;
+        private System.Windows.Forms.Label lblThai;
+        private System.Windows.Forms.PictureBox pic;
+        private System.Windows.Forms.Timer tim;
     }
 }
 
